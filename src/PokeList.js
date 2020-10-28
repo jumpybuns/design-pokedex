@@ -20,7 +20,7 @@ export default class PokeList extends Component {
         })   
         .filter((id) => {
         if (!this.props.type_1) return true;
-        if (id.type_1 === +this.props.type_1) return true;
+        if (id.type_1 === this.props.type_1) return true;
         return false;
         })   
         .filter((id) => {
@@ -41,8 +41,8 @@ export default class PokeList extends Component {
             <PokeItem
                 image={id.url_image} 
                 id={id.id}
-                name={id.pokemon} 
-                description={id.type_1}
+                pokemon={id.pokemon} 
+                type_1={id.type_1}
                 attack={id.attack}
                 defense={id.defense} 
                 />)

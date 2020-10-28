@@ -9,8 +9,8 @@ import DropDown from './DropDown.js';
 export default class App extends React.Component {
   state = {
       image: '',
-      name: '',
-      description: '',
+      pokemon: '',
+      type_1: '',
       attack: '',
       defense: '',
       
@@ -18,7 +18,7 @@ export default class App extends React.Component {
 
   handleChangeType_1 = e => {
       this.setState({
-          description: e.target.value,
+          type_1: e.target.value,
       });
   }
 
@@ -29,18 +29,18 @@ export default class App extends React.Component {
   }
   handleChangeDefense = e => {
       this.setState({
-          keydefenseword: e.target.value,
+          defense: e.target.value,
       });
   }
   render() {
       return (
           <div>
               <Header /> 
-              <DropDown />
+              <DropDown handleChangeType_1={this.handleChangeType_1} handleChangeAttack={this.handleChangeAttack} handleChangeDefense={this.handleChangeDefense}/>
+              <PokeList pokeDataProps={pokeData} type_1={this.state.type_1} attack={this.state.attack} defense={this.state.defense} />
 
-              <PokeList pokeDataProps={pokeData}/>
               
           </div>
-      );
+      )
   }
-  }
+}
