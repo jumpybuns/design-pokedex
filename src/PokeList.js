@@ -14,26 +14,29 @@ export default class PokeList extends Component {
 
      })
         .filter((id) => {
-        if (!this.props.url_image) return true;
-        if (id.url_image === this.props.url_image) return true;
-        return false;
-        })   
-        .filter((id) => {
         if (!this.props.type_1) return true;
         if (id.type_1 === this.props.type_1) return true;
         return false;
         })   
         .filter((id) => {
         if (!this.props.attack) return true;
-        if (id.attack === +this.props.attack) return true;
+        if ('weak' === this.props.attack) return id.attack <= 45;
+        if ('mild' === this.props.attack) return id.attack >= 45 && id.attack <= 60;
+        if ('strong' === this.props.attack) return id.attack >= 61;
         return false;
         })
         .filter((id) => {
-            if (!this.props.defense) return true;
-            if (id.defense === +this.props.defense) return true;
-            return false;
-            })  
-            console.log(this.props.pokeDataProps) 
+        if (!this.props.defense) return true;
+        if ('flimsy' === this.props.defense) return id.defense <= 50;
+        if ('stiff' === this.props.defense) return id.defense >= 50 && id.defense <=65;
+        if ('solid' === this.props.defense) return id.defense >= 66;
+        return false;
+        })
+        // .filter((name) => {
+        //     if (this.props.name === this.pokeDataProps.pokemon) return true;
+        // return false;
+        // })  
+
         return (
         <div className="PokeList">    
                     {
