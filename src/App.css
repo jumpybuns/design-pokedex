@@ -26,14 +26,14 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(134, 19, 19)53, 0, 0);
+  color: rgb(207, 255, 175)53, 0, 0;
 
 }
 .header {  
 
   font-family: 'Henny Penny', cursive;
   text-align: center;
-  color: rgb(214, 211, 211);
+  color: rgb(220, 255, 211);
 }
 .PokeItem {
   display: flex;
@@ -50,6 +50,10 @@ body {
 
 }
 
+.PokeList {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .pokeImage {
   display: flex;
@@ -92,4 +96,38 @@ body {
   right: 5px;
   bottom: 25px;
   height: 5px;
+}
+
+.link {
+  color: antiquewhite;
+  font-size: 1.3rem;
+  margin-left: 50px;
+  position: relative;
+  bottom: 30px;
+}
+
+
+.link2 {
+  color: antiquewhite;
+  font-size: 1.3rem;
+  margin-left: 540px;
+  position: relative;
+  bottom: 30px;
+}
+
+.dropdown {
+  position: relative;
+}
+.sort {
+  position: relative;
+  bottom: 28px;
+  left: 300px
+}
+
+.gif {
+  margin-left: 200px;
+  position: relative; 
+  bottom: 100px;
+  height: 100px;
+  width: 200px;
 }

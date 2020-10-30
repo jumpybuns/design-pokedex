@@ -3,10 +3,10 @@ import React from 'react';
 export default class Header extends React.Component {
     render() {
         return (
-            <div className="header">
+            <header className="header">
                 <h1>You Have To Catch Them All</h1>
-                {/* //navigation bar */}
-            </div>
+
+            </header>
         )
     }
 }
