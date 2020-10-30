@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PokeItem from './PokeItem.js';
-
+import './App.css';
 
 
 

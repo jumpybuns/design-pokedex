@@ -19,7 +19,7 @@ export default class App extends React.Component {
               
               <Header /> 
                
-              
+            
                <div>
               <Router>  
                 <ul >
@@ -29,7 +29,7 @@ export default class App extends React.Component {
                 </ul>
                     <Switch> 
                         <Route 
-                            path="/mainpage" 
+                            path="/" 
                             exact
                             render={(routerProps) => <MainPage {...routerProps} />} 
                         />

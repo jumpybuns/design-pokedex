@@ -58,14 +58,15 @@ export default class Sort extends Component {
                     <option value='speed'>Speed</option>   
                     </select>
                     </div>
-                    { 
+                    { !this.state.loading?
                         this.state.pokemon.map(poke => <div className="PokeItem" key={poke.id}>
                         <p className="name">{poke.pokemon}</p>
                         <img src={poke.url_image} alt={poke.type_1} className="pokeImage"/>
                         <p className="attack">A: {poke.attack}</p>
                         <p className="defense">D: {poke.defense}</p>
                         <p className="type">{poke.type_1}</p>
-                        </div>)
+                        </div>) :
+                        "Loading"
                     }
                     
             </div>
