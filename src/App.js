@@ -6,10 +6,6 @@ import {
     Switch,
 } from 'react-router-dom';
 import Header from './Header.js';
-// import PokeList from './PokeList.js';
-// import pokeData from './Data.js';
-// import DropDown from './DropDown.js';
-// import SearchBar from './SearchBar.js';
 import SearchPage from './SearchPage.js';
 import Sort from './Sort';
 
@@ -60,8 +56,6 @@ export default class App extends React.Component {
               <Header /> 
               
                
-              {/* <DropDown handleChangeType_1={this.handleChangeType_1} handleChangeAttack={this.handleChangeAttack} handleChangeDefense={this.handleChangeDefense}/> */}
-              {/* <PokeList pokeDataProps={pokeData} pokemon={this.state.pokemon} type_1={this.state.type_1} attack={this.state.attack} defense={this.state.defense} /> */}
               <div>
               <Router>
                     <Switch> 

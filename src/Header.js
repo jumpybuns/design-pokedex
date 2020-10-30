@@ -1,12 +1,16 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 export default class Header extends React.Component {
     render() {
         return (
-            <div className="header">
+            <header className="header">
                 <h1>You Have To Catch Them All</h1>
-                {/* //navigation bar */}
-            </div>
+                <li>
+                    <Link to="./">Home</Link>
+                    <Link to="./Sort.js">PokeDex</Link>
+
+                </li>
+            </header>
         )
     }
 }

@@ -23,32 +23,34 @@ state = {
     }
 
     fetchPokemon = async () => {
+        // this.setState({loading: true});
         const response = await fetch.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchPokemon}`)
         this.setState({ pokemon: response.body.results });
-    
+        // this.setState({loading: false});
+
     }
 
     render() {
-        console.log(this.state.pokemon)
         return (
+            
             <div className='fetch'>
                 <form onSubmit={this.handleClick}>
                     <input onChange={this.handleChange} />
                     <button>Search</button>
                 </form>
-                    { 
+
+                                             {
                         this.state.pokemon.map(poke => <div className="PokeItem" key={poke.id}>
                         <p className="name">{poke.pokemon}</p>
                         <img src={poke.url_image} alt={poke.type_1} className="pokeImage"/>
                         <p className="attack">A: {poke.attack}</p>
                         <p className="defense">D: {poke.defense}</p>
-                        <p className="type">{poke.type_1}</p>
-                        </div>)
-
-                                       }
-                    }
-                    
+                        <p className="type">{poke.type_1}</p> 
+                        </div>) }
             </div>
+            
+
+                                               
         )
-    }
+                                                     }    
 }

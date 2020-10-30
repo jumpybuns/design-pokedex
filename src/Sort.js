@@ -4,46 +4,57 @@ import fetch from 'superagent'
 export default class Sort extends Component {
     state = {
         pokemon: [],
-        fetchDefAsc: '',
-        fetchDefDesc: ''
-    }
+        searchPokemon: '',
+        direction: '',
+        type: ''
+}
 
     componentDidMount = async () => {
         const items = await fetch.get('https://alchemy-pokedex.herokuapp.com/api/pokedex');
         this.setState({ pokemon: items.body.results });
 
     }
-    handleSubmit = async (e) => {
-        e.preventDefault();
-    this.setState({
-      searchPokemon: this.state.value,
-    }) }
-        // await this.setState ({ pokemon: e.target.value })   }
-
-    fetchByDefAsc = async () => {
-        const responseUp = await fetch.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?sort=defence&direction=asc`)
-        this.setState({ fetchDefAsc: responseUp.body.results });
+    handleChange = (e) => {
+        this.setState({ searchPokemon: e.target.value })
     }
-    fetchByDefDesc = async () => {
-        const responseDown = await fetch.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?sort=defence&direction=desc`)
-        this.setState({ fetchDefDesc: responseDown.body.results });
+    handleClick = async (e) => {
+        e.preventDefault()
+        await this.fetchPokemon();
+    }
+    handleDirectionChange = async (e) => {
+        this.setState({ direction: e.target.value }) }
+    
+    handleTypeChange = async (e) => {
+        this.setState({ type: e.target.value })
+    }
+    fetchPokemon = async () => {
+            this.setState({loading: true});
+            const response = await fetch.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchPokemon}&sort=${this.state.type}&direction=${this.state.direction}`)
+            this.setState({ pokemon: response.body.results });
+            this.setState({loading: false});
     
     }
 
     render() {        
 
         return (
-            <>
+            
             <div className='sort'>
-                    <select onChange={this.state.fetchByDefAsc}>
+                <form onSubmit={this.handleClick}>
+                    <input onChange={this.handleChange} />
+                    <button>Search</button>
+                </form>
+                    <select onChange={this.handleDirectionChange}>
                     <option value=''>Show All</option>
                     <option value='asc'>Ascending</option>
-                    <option value='desc'>Descending</option>   
+                    <option value='desc'>Descending</option> 
                     </select>
-                    <select onChange={this.state.fetchByDefDesc}>
-                    <option value=''>Show All</option>
-                    <option value='asc'>Ascending</option>
-                    <option value='desc'>Descending</option>   
+                    <select onChange={this.handleTypeChange}>
+                    <option value='type_1'>Type</option>
+                    <option value='attack'>Attack</option>
+                    <option value='defense'>Defense</option>
+                    <option value='hp'>HP</option>   
+                    <option value='speed'>Speed</option>   
                     </select>
                
                     { 
@@ -57,7 +68,7 @@ export default class Sort extends Component {
                     }
                     
             </div>
-            </> 
         )
+                }
     }
-}
+
