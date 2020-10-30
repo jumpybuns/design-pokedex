@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Roboto:wght@500&display=swap');
 .App {
   text-align: center;
+  font-family: 'MyFont';
 }
 
 .App-logo {
@@ -7,17 +9,87 @@
   pointer-events: none;
 }
 
+body {
+  background-image: url('./pokemonblack.jpg');
+  background-size: 900px;
+  font-family: 'Henny Penny', cursive;
 
+}
 
 .App-header {
-  background-color: #282c34;
+  font-family: 'Henny Penny', cursive;
+  background: url('pokeheader.jpg');
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(134, 19, 19)53, 0, 0);
+
+}
+.header {  
+
+  font-family: 'Henny Penny', cursive;
+  text-align: center;
+  color: rgb(214, 211, 211);
+}
+.PokeItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 300px;
+  width: 200px;
+  border: solid rgb(255, 217, 0) 20px;
+  border-radius: 15px;
+  margin: 10px;
+  background-color: aqua;
+
 }
 
 
+.pokeImage {
+  display: flex;
+  height: 200px;
+  width: 200px;
+}
+
+
+.name {
+  display: flex;
+  font-size: 1.5rem;
+  position: relative;
+  bottom: 10px;
+  height: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+
+}
+.attack {
+  display: flex;
+  position: relative;
+  bottom: 30px;
+  height: 0px;
+  margin-left: 50px;
+
+}
+.defense {
+  display: flex;
+  position: relative;
+  bottom: 30px;
+  left: -20px;
+  top: -19px;
+  margin-top: 1px;
+  margin-left: 50px;
+  height: 5px;
+}
+.type {
+  display: flex;
+  position: relative;
+  right: 5px;
+  bottom: 25px;
+  height: 5px;
+}
