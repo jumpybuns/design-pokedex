@@ -1,6 +1,44 @@
 import React, { Component } from 'react'
 
 export default class DropDown extends Component {
+    state = {
+        image: '',
+        pokemon: '',
+        type_1: '',
+        attack: '',
+        defense: '',
+        value: '',
+        searchPokemon: ''
+        
+    }
+  
+    handleChangeType_1 = e => {
+        this.setState({
+            type_1: e.target.value,
+        });
+    }
+  
+    handleChangeAttack = e => {
+        this.setState({
+            attack: e.target.value,
+        });
+    }
+    handleChangeDefense = e => {
+        this.setState({
+            defense: e.target.value,
+        });
+    }
+    handleChangeSearch = e => {
+      this.setState({
+          value: e.target.value,
+      });
+  }
+    handleSubmit = e => {
+    e.preventDefault();
+    this.setState({
+      searchPokemon: this.state.value,
+    })
+  }
     render() {
         return (
             <div>

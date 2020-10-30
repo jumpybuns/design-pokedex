@@ -34,13 +34,18 @@ state = {
             <div className='fetch'>
                 <form onSubmit={this.handleClick}>
                     <input onChange={this.handleChange} />
-                    <button>Search By Pokemon</button>
+                    <button>Search</button>
                 </form>
                     { 
-                    this.state.pokemon.map(poke => <div key={poke.id}>
-                    <img src={poke.url_image} alt={poke.type_1}/>
-                    <p>{poke.type_1}</p>
-                    <p>{poke.pokemon}</p></div>)
+                        this.state.pokemon.map(poke => <div className="PokeItem" key={poke.id}>
+                        <p className="name">{poke.pokemon}</p>
+                        <img src={poke.url_image} alt={poke.type_1} className="pokeImage"/>
+                        <p className="attack">A: {poke.attack}</p>
+                        <p className="defense">D: {poke.defense}</p>
+                        <p className="type">{poke.type_1}</p>
+                        </div>)
+
+                                       }
                     }
                     
             </div>
