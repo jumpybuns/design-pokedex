@@ -44,6 +44,7 @@ export default class Sort extends Component {
                     <input onChange={this.handleChange} />
                     <button>Search</button>
                 </form>
+                    <div className="dropdown">
                     <select onChange={this.handleDirectionChange}>
                     <option value=''>Show All</option>
                     <option value='asc'>Ascending</option>
@@ -56,7 +57,7 @@ export default class Sort extends Component {
                     <option value='hp'>HP</option>   
                     <option value='speed'>Speed</option>   
                     </select>
-               
+                    </div>
                     { 
                         this.state.pokemon.map(poke => <div className="PokeItem" key={poke.id}>
                         <p className="name">{poke.pokemon}</p>
