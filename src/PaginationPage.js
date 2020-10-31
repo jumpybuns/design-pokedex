@@ -1,48 +1,59 @@
 import React, { Component } from 'react'
-import fetch from 'superagent'
 import { Link } from 'react-router-dom';
 
-
-export default class Sort extends Component {
+export default class PaginationPage extends Component {
     state = {
         pokemon: [],
-        searchPokemon: '',
-        direction: '',
-        type: '',
         loading: ''
-}
-
+    }
+    
     componentDidMount = async () => {
-        const items = await fetch.get('https://alchemy-pokedex.herokuapp.com/api/pokedex');
-        this.setState({ pokemon: items.body.results });
+        this.fetchPokemon();
 
     }
+
     handleChange = (e) => {
         this.setState({ searchPokemon: e.target.value })
     }
-    handleClick = async (e) => {
-        e.preventDefault()
+    handleIncrement = async () => {
+        await this.setState({
+            pageNumber: this.state.pageNumber + 1,
+        })
+    }
+    handleDecrement = async () => {
+        await this.setState({
+            pageNumber: this.state.pageNumber - 1,
+        })
         await this.fetchPokemon();
     }
-    handleDirectionChange = async (e) => {
-        this.setState({ direction: e.target.value }) }
-    
-    handleTypeChange = async (e) => {
-        this.setState({ type: e.target.value })
-    }
+
+
     fetchPokemon = async () => {
-            this.setState({loading: true});
-            const response = await fetch.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchPokemon}&sort=${this.state.type}&direction=${this.state.direction}`)
-            this.setState({ pokemon: response.body.results });
-            this.setState({loading: false});
-    
-    }
+        this.setState({loading: true});
+        const response = await fetch.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchPokemon}&sort=${this.state.type}&direction=${this.state.direction}`)
+        this.setState({ pokemon: response.body.results });
+        this.setState({loading: false});
 
-    render() {        
+}
 
+    render() {
         return (
-            
-            <div className='sort'>
+            <>
+            <div>
+                Page {this.state.pageNumber} out of {Math.ceil(this.state.count / 20)}
+            </div>
+            <div>
+                {this.state.count} total pokemon in query
+            </div>
+                {
+                    <button disabled={this.state.pageNumber === 1} onClick={this.handleDecrement}>Prev</button>
+                }
+                {
+                    <button onClick={this.handleIncrement} disabled={this.state.pageNumber === Math.ceil(this.state.count / 20)}>
+                        Next
+                    </button>
+                }
+                           <div className='sort'>
                 <form onSubmit={this.handleClick}>
                     <input onChange={this.handleChange} />
                     <button>Search</button>
@@ -79,3 +90,8 @@ export default class Sort extends Component {
                 }
     }
 
+
+            </>
+        )
+    }
+}
