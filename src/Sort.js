@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import fetch from 'superagent'
+import { Link } from 'react-router-dom';
+
 
 export default class Sort extends Component {
     state = {
         pokemon: [],
         searchPokemon: '',
         direction: '',
-        type: ''
+        type: '',
+        loading: ''
 }
 
     componentDidMount = async () => {
@@ -58,15 +61,17 @@ export default class Sort extends Component {
                     <option value='speed'>Speed</option>   
                     </select>
                     </div>
-                    { !this.state.loading?
-                        this.state.pokemon.map(poke => <div className="PokeItem" key={poke.id}>
+                    { !this.state.pokemon.length ? "loading" :
+                        this.state.pokemon.map(poke => 
+                        <Link to={`/details/${poke.pokemon}`}>
+                        <div className="PokeItem" key={poke.id}>
                         <p className="name">{poke.pokemon}</p>
                         <img src={poke.url_image} alt={poke.type_1} className="pokeImage"/>
                         <p className="attack">A: {poke.attack}</p>
                         <p className="defense">D: {poke.defense}</p>
                         <p className="type">{poke.type_1}</p>
-                        </div>) :
-                        "Loading"
+                        </div>
+                        </Link>) 
                     }
                     
             </div>
