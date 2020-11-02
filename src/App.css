@@ -1,10 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Roboto:wght@500&display=swap');
-/* @media all and (max-width:30em){
-   a.button1{
-    display:block;
-    margin:0.4em auto;
-   }
-  } */
 
 .App {
   text-align: center;
@@ -44,7 +38,7 @@ body {
 }
 .PokeItem {
   display: flex;
-  flex-direction: row;
+  flex-grow: wrap;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -146,43 +140,54 @@ body {
   height: 100px;
   width: 200px;
 }
+.gif2 {
+  position: relative; 
+  height: 100px;
+  width: 200px;
+}
 .prev {
-  padding: 15px 25px;
+  font-family: 'Henny Penny', cursive;
+  position: relative;
+  bottom: 75px;
+  left: 50px;
   font-size: 24px;
   text-align: center;
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #152746;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 2px #999;
 }
 
-.prev:hover {background-color: #3e8e41}
+.prev:hover {background-color: #008ba3}
 
 .prev:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+  background-color: #008ba3;
+  box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
 .next {
-  padding: 15px 25px;
+  font-family: 'Henny Penny', cursive;
+  position: relative;
+  bottom: 75px;
+  left: 60px;
   font-size: 24px;
   text-align: center;
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #152746;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 2px #999;
 }
 
-.next:hover {background-color: #3e8e41}
+.next:hover {background-color: #008ba3}
 
 .next:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+  background-color: #008ba3;
+  box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
