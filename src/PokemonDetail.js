@@ -20,7 +20,6 @@ export default class PokemonDetail extends Component {
 
 }
     render() {
-        console.log(this.state.pokemon)
         return (
             <div>
                         {this.state.pokemon.map(poke => <div className="PokeItem" key={poke.id}>

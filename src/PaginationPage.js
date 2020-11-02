@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import fetch from 'superagent';
 
 export default class PaginationPage extends Component {
     state = {
         pokemon: [],
-        loading: ''
+        character: '',
+        loading: false,
+        pageNumber: 1
     }
     
     componentDidMount = async () => {
-        this.fetchPokemon();
+        await this.fetchPokemon();
 
+    }
+    handleSubmit = async (e) => {
+        e.preventDefault();
+
+        await this.fetchPokemon();
     }
 
     handleChange = (e) => {
@@ -29,27 +37,28 @@ export default class PaginationPage extends Component {
 
 
     fetchPokemon = async () => {
-        this.setState({loading: true});
-        const response = await fetch.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchPokemon}&sort=${this.state.type}&direction=${this.state.direction}`)
-        this.setState({ pokemon: response.body.results });
-        this.setState({loading: false});
+        this.setState({loading: true})
+        const response = await fetch.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=${this.state.pageNumber}&perPage=20`);
+        this.setState({ pokemon: response.body.results,
+        loading: false,
+        count: response.body.count });
 
 }
 
     render() {
         return (
             <>
-            <div>
+            <div className="header">
                 Page {this.state.pageNumber} out of {Math.ceil(this.state.count / 20)}
             </div>
-            <div>
+            <div className="header">
                 {this.state.count} total pokemon in query
             </div>
                 {
-                    <button disabled={this.state.pageNumber === 1} onClick={this.handleDecrement}>Prev</button>
+                    <button className="prev" disabled={this.state.pageNumber === 1} onClick={this.handleDecrement}>Prev</button>
                 }
                 {
-                    <button onClick={this.handleIncrement} disabled={this.state.pageNumber === Math.ceil(this.state.count / 20)}>
+                    <button className="next" onClick={this.handleIncrement} disabled={this.state.pageNumber === Math.ceil(this.state.count / 20)}>
                         Next
                     </button>
                 }
