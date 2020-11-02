@@ -9,6 +9,9 @@ import Header from './Header.js';
 import Sort from './Sort';
 import { Link } from 'react-router-dom';
 import MainPage from './MainPage';
+import PokemonDetail from './PokemonDetail.js';
+import PaginationPage from './PaginationPage.js';
+
 
 export default class App extends React.Component {
 
@@ -25,6 +28,8 @@ export default class App extends React.Component {
                 <ul >
                     <Link className="link" to="./MainPage">Home</Link>
                     <Link className="link2" to="./sort">PokeDex</Link>
+                    <Link className="link3" to="./pagination">Pagination</Link>
+
 
                 </ul>
                     <Switch> 
@@ -38,6 +43,16 @@ export default class App extends React.Component {
                             exact
                             render={(routerProps) => <Sort {...routerProps} />} 
                         />
+                        <Route 
+                            path="/details/:pokemon" 
+                            exact
+                            render={(routerProps) => <PokemonDetail {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/pagination" 
+                            exact
+                            render={(routerProps) => <PaginationPage {...routerProps} />} 
+                    />
                      
       
       
