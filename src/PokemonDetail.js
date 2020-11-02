@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import fetch from 'superagent'
+import gif from './giphy.gif';
+
 
 export default class PokemonDetail extends Component {
     state = {
@@ -22,13 +24,22 @@ export default class PokemonDetail extends Component {
     render() {
         return (
             <div>
-                        {this.state.pokemon.map(poke => <div className="PokeItem" key={poke.id}>
-                        <p className="name">{poke.pokemon}</p>
-                        <img src={poke.url_image} alt={poke.type_1} className="pokeImage"/>
-                        <p className="attack">A: {poke.attack}</p>
-                        <p className="defense">D: {poke.defense}</p>
-                        <p className="type">{poke.type_1}</p>
-                        </div>) }
+                        { this.state.loading 
+                        ? 
+                        <img src={gif} className='gif3' alt='gif'/> :
+                        <div className="PokeDetails"> { 
+                            this.state.pokemon.map(poke => 
+                            
+                            <div className="PokeItem" key={poke.id}>
+                            <p className="name">{poke.pokemon}</p>
+                            <img src={poke.url_image} alt={poke.type_1} className="pokeImage"/>
+                            <p className="attack">A: {poke.attack}</p>
+                            <p className="defense">D: {poke.defense}</p>
+                            <p className="type">{poke.type_1}</p>
+                            </div>
+                            ) 
+                        }</div> 
+                    }
             </div>
         )
     }

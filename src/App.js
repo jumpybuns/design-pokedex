@@ -26,9 +26,9 @@ export default class App extends React.Component {
                <div>
               <Router>  
                 <ul >
-                    <Link className="link" to="./MainPage">Home</Link>
-                    <Link className="link2" to="./sort">PokeDex</Link>
-                    <Link className="link3" to="./pagination">Pagination</Link>
+                    <Link className="link" to="/">Home</Link>
+                    <Link className="link2" to="/sort">PokeDex</Link>
+                    <Link className="link3" to="/pagination">Pages</Link>
 
 
                 </ul>

@@ -41,7 +41,7 @@ body {
   font-family: 'Henny Penny', cursive;
   text-align: center;
   position: relative;
-  top: -25px;
+  top: -20px;
   color: rgb(220, 255, 211);
 }
 .PokeItem {
@@ -56,6 +56,32 @@ body {
   border-radius: 15px;
   margin: 10px;
   background-color: aqua;
+
+}
+
+.PokeCards {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  right: 280px;
+  top: 10px;
+
+}
+
+.PokeCards2 {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  right: 280px;
+  top: -20px;
+
+}
+.PokeDetails {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left: 280px;
+  bottom: 60px;
 
 }
 
@@ -119,8 +145,8 @@ body {
 .link2 {
   color: antiquewhite;
   font-size: 1.3rem;
-  margin-left: 540px;
   position: relative;
+  left: 230px;
   bottom: 30px;
 }
 
@@ -128,7 +154,7 @@ body {
   color: antiquewhite;
   font-size: 1.3rem;
   position: relative;
-  right: 375px;
+  left: 450px;
   bottom: 30px;
 }
 
@@ -137,7 +163,7 @@ body {
 }
 .sort {
   position: relative;
-  bottom: 28px;
+  bottom: 45px;
   left: 300px
 }
 
@@ -150,6 +176,13 @@ body {
 }
 .gif2 {
   position: relative; 
+  height: 100px;
+  width: 200px;
+}
+
+.gif3 {
+  position: relative; 
+  left: 350px;
   height: 100px;
   width: 200px;
 }
