@@ -36,6 +36,14 @@ body {
   text-align: center;
   color: rgb(220, 255, 211);
 }
+.header2 {  
+
+  font-family: 'Henny Penny', cursive;
+  text-align: center;
+  position: relative;
+  top: -25px;
+  color: rgb(220, 255, 211);
+}
 .PokeItem {
   display: flex;
   flex-grow: wrap;

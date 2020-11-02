@@ -52,11 +52,11 @@ export default class PaginationPage extends Component {
     render() {
         return (
             <div>
-                <div className="header">
+                <div className="header2">
                     Page {this.state.pageNumber} out of {Math.ceil(this.state.count / 20)}
                 </div>
-                <div className="header">
-                    {this.state.count} total pokemon in query
+                <div className="header2">
+                    {this.state.count} total pokemon
                 </div>
                     {
                         <button className="prev" disabled={this.state.pageNumber === 1} onClick={this.handleDecrement}>Prev</button>
