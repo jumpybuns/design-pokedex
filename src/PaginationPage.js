@@ -15,12 +15,6 @@ export default class PaginationPage extends Component {
         await this.fetchPokemon();
 
     }
-    handleSubmit = async (e) => {
-        e.preventDefault();
-
-        await this.fetchPokemon();
-    }
-
     handleChange = (e) => {
         this.setState({ searchPokemon: e.target.value })
     }
@@ -67,29 +61,16 @@ export default class PaginationPage extends Component {
                         </button>
                     }
                             <div className='sort'>
-                    <form onSubmit={this.handleClick}>
-                        <input onChange={this.handleChange} />
-                        <button>Search</button>
-                    </form>
+               
                         <div className="dropdown">
-                        <select onChange={this.handleDirectionChange}>
-                        <option value=''>Show All</option>
-                        <option value='asc'>Ascending</option>
-                        <option value='desc'>Descending</option> 
-                        </select>
-                        <select onChange={this.handleTypeChange}>
-                        <option value='type_1'>Type</option>
-                        <option value='attack'>Attack</option>
-                        <option value='defense'>Defense</option>
-                        <option value='hp'>HP</option>   
-                        <option value='speed'>Speed</option>   
-                        </select>
+
                         </div>
                         
-                        {/* { !this.state.loading 
+                        { this.state.loading 
                         ? 
-                        <img src={gif} className='gif2' alt='gif'/> : */}
-                            { this.state.pokemon.map(poke => 
+                        <img src={gif} className='gif2' alt='gif'/> :
+                        <div className="PokeCards2"> { 
+                            this.state.pokemon.map(poke => 
                             <Link to={`/details/${poke.pokemon}`}>
                             <div className="PokeItem" key={poke.id}>
                             <p className="name">{poke.pokemon}</p>
@@ -99,6 +80,7 @@ export default class PaginationPage extends Component {
                             <p className="type">{poke.type_1}</p>
                             </div>
                             </Link>) 
+                        }</div> 
                         }
                         
                 </div>

@@ -20,6 +20,12 @@ export default class Sort extends Component {
     handleChange = (e) => {
         this.setState({ searchPokemon: e.target.value })
     }
+    handleSubmit = async (e) => {
+        e.preventDefault();
+
+        await this.fetchPokemon();
+    }
+
     handleClick = async (e) => {
         e.preventDefault()
         await this.fetchPokemon();
@@ -61,8 +67,8 @@ export default class Sort extends Component {
                     <option value='speed'>Speed</option>   
                     </select>
                     </div>
-                    { !this.state.pokemon.length ? "Loading" :
-                        this.state.pokemon.map(poke => 
+                    { this.state.loading ? "Loading" :
+                       <div className="PokeCards">{ this.state.pokemon.map(poke => 
                         <Link to={`/details/${poke.pokemon}`}>
                         <div className="PokeItem" key={poke.id}>
                         <p className="name">{poke.pokemon}</p>
@@ -72,6 +78,7 @@ export default class Sort extends Component {
                         <p className="type">{poke.type_1}</p>
                         </div>
                         </Link>) 
+                       }</div>
                     }
                     
             </div>
